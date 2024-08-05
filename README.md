@@ -106,7 +106,7 @@ In order to use the Time Stretch or Change Pitch tool, you'll need Rubber Band.
 > Second, run the following command to bypass Notarization: 
 > 
 > ```bash
-> sudo xattr -rd com.apple.quarantine /Applications/Ultimate\ Vocal\ Remover.app
+> sudo xattr -d com.apple.quarantine /Applications/Ultimate\ Vocal\ Remover.app
 > ```
 
 </details>
@@ -189,15 +189,20 @@ sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 Then proceed with the following in order:
 
 ```
-chmod +x install_packages.sh
-./install_packages.sh
+conda create -n uvr5 python=3.12
+conda activate uvr5
+# conda install ffmpeg tk
+conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+pip install onnxruntime-gpu onnx2pytorch onnx --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+pip3 install -r requirements.txt
+# building wheel for samplerate may require a proxy
 python UVR.py
 ```
 
 </details>
 
 ### Other Application Notes
-- Nvidia RTX 1060 6GB is the minimum requirement for GPU conversions.
+- Nvidia GTX 1060 6GB is the minimum requirement for GPU conversions.
 - Nvidia GPUs with at least 8GBs of V-RAM are recommended.
 - AMD Radeon GPU supported is limited at this time.
    - There is currently a working branch for AMD GPU users [here](https://github.com/Anjok07/ultimatevocalremovergui/tree/v5.6-amd-gpu)
