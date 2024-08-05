@@ -1,2 +1,4 @@
 .DS_Store
 /.cenv
+__pycache__
+/data.pkl

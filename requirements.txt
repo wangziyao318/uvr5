@@ -30,5 +30,6 @@ samplerate
 screeninfo
 diffq
 playsound
-SoundFile
+SoundFile; sys_platform != 'darwin'
+PySoundFile; sys_platform == 'darwim'
 numpy

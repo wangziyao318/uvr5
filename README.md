@@ -17,189 +17,34 @@ This application uses state-of-the-art source separation models to remove vocals
 
 ## Installation
 
-These bundles contain the UVR interface, Python, PyTorch, and other dependencies needed to run the application effectively. No prerequisites are required.
+### Mac
 
-### Windows Installation
-
-- Please Note:
-    - This installer is intended for those running Windows 10 or higher. 
-    - Application functionality for systems running Windows 7 or lower is not guaranteed.
-    - Application functionality for Intel Pentium & Celeron CPUs systems is not guaranteed.
-    - You must install UVR to the main C:\ drive. Installing UVR to a secondary drive will cause instability.
-
-- Download the UVR installer for Windows via the link below:
-    - [Main Download Link](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/UVR_v5.6.0_setup.exe)
-    - [Main Download Link mirror](https://www.mediafire.com/file_premium/jiatpgp0ljou52p/UVR_v5.6.0_setup.exe/file)
-- If you use an **AMD Radeon or Intel Arc graphics card**, you can try the OpenCL version:
-    - [OpenCL Version - Main Download Link](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/UVR_v5.6.0_setup_opencl.exe)
-- Update Package instructions for those who have UVR already installed:
-    - If you already have UVR installed you can install this package over it or download it straight from the application or [click here for the patch](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/UVR_Patch_10_6_23_4_27.exe).
-
-<details id="WindowsManual">
-  <summary>Windows Manual Installation</summary>
-
-### Manual Windows Installation
-
-- Download and extract the repository [here](https://github.com/Anjok07/ultimatevocalremovergui/archive/refs/heads/master.zip)
-- Download and install Python [here](https://www.python.org/ftp/python/3.9.8/python-3.9.8-amd64.exe)
-   - Make sure to check "Add python.exe to PATH" during the install
-- Run the following commands from the extracted repo directory:
-
-```
-python.exe -m pip install -r requirements.txt
-```
-
-If you have a compatible Nvidia GPU, run the following command:
-
-```
-python.exe -m pip install --upgrade torch --extra-index-url https://download.pytorch.org/whl/cu117
-```
-
-If you do not have FFmpeg or Rubber Band installed and want to avoid going through the process of installing them the long way, follow the instructions below.
-
-**FFmpeg Installation**
-
-- Download the precompiled build [here](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip)
-- From the archive, extract the following file to the UVR application directory:
-   - ```ffmpeg-5.1.2-essentials_build/bin/ffmpeg.exe```
-
-**Rubber Band Installation**
-
-In order to use the Time Stretch or Change Pitch tool, you'll need Rubber Band.
-
-- Download the precompiled build [here](https://breakfastquay.com/files/releases/rubberband-3.1.2-gpl-executable-windows.zip)
-- From the archive, extract the following files to the UVR application directory:
-   - ```rubberband-3.1.2-gpl-executable-windows/rubberband.exe```
-   - ```rubberband-3.1.2-gpl-executable-windows/sndfile.dll```
-
-</details>
-
-### MacOS Installation
-- Please Note:
-    - The MacOS Sonoma mouse clicking issue has been fixed.
-    - MPS (GPU) acceleration for Mac M1 has been expanded to work with Demucs v4 and all MDX-Net models.
-    - This bundle is intended for those running macOS Big Sur and above.
-    - Application functionality for systems running macOS Catalina or lower is not guaranteed.
-    - Application functionality for older or budget Mac systems is not guaranteed.
-    - Once everything is installed, the application may take up to 5-10 minutes to start for the first time (depending on your Macbook).
-
-- Download the UVR dmg for MacOS via one of the links below:
-    - Mac M1 (arm64) users:
-       - [Main Download Link](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/Ultimate_Vocal_Remover_v5_6_MacOS_arm64.dmg)
-       - [Main Download Link mirror](https://www.mediafire.com/file_premium/u3rk54wsqadpy93/Ultimate_Vocal_Remover_v5_6_MacOS_arm64.dmg/file)
-
-    - Mac Intel (x86_64) users:
-       - [Main Download Link](https://github.com/Anjok07/ultimatevocalremovergui/releases/download/v5.6/Ultimate_Vocal_Remover_v5_6_MacOS_x86_64.dmg)
-       - [Main Download Link mirror](https://www.mediafire.com/file_premium/2gf1werx5ly5ylz/Ultimate_Vocal_Remover_v5_6_MacOS_x86_64.dmg/file)
-
-<details id="CannotOpen">
-  <summary>MacOS Users: Having Trouble Opening UVR?</summary>
-
-> Due to Apples strict application security, you may need to follow these steps to open UVR.
->
-> First, run the following command via Terminal.app to allow applications to run from all sources (it's recommended that you re-enable this once UVR opens properly.)
-> 
-> ```bash
-> sudo spctl --master-disable
-> ```
-> 
-> Second, run the following command to bypass Notarization: 
-> 
-> ```bash
-> sudo xattr -d com.apple.quarantine /Applications/Ultimate\ Vocal\ Remover.app
-> ```
-
-</details>
-
-<details id="MacInstall">
-  <summary>Manual MacOS Installation</summary>
-
-### Manual MacOS Installation
-
-- Download and save this repository [here](https://github.com/Anjok07/ultimatevocalremovergui/archive/refs/heads/master.zip)
-- Download and install Python 3.10 [here](https://www.python.org/ftp/python/3.10.9/python-3.10.9-macos11.pkg)
-- From the saved directory run the following - 
-
-```
-pip3 install -r requirements.txt
-```
-
-- If your Mac is running with an M1, please run the following command next. If not, skip this step. - 
-
-```
-cp /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/_soundfile_data/libsndfile_arm64.dylib /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/_soundfile_data/libsndfile.dylib
-```
-
-**FFmpeg Installation**
-
-- Once everything is done installing, download the correct FFmpeg binary for your system [here](http://www.osxexperts.net) and place it into the main application directory.
-
-**Rubber Band Installation**
-
-In order to use the Time Stretch or Change Pitch tool, you'll need Rubber Band.
-
-- Download the precompiled build [here](https://breakfastquay.com/files/releases/rubberband-3.1.2-gpl-executable-windows.zip)
-- From the archive, extract the following files to the UVR/lib_v5 application directory:
-   - ```rubberband-3.1.2-gpl-executable-macos/rubberband```
-
-This process has been tested on a MacBook Pro 2021 (using M1) and a MacBook Air 2017 and is confirmed to be working on both.
-
-</details>
-
-### Linux Installation
-
-<details id="LinuxInstall">
-  <summary>See Linux Installation Instructions</summary>
-
-<br />
-    
-**These install instructions are for Debian & Arch based Linux systems.**
-
-- Download and save this repository [here](https://github.com/Anjok07/ultimatevocalremovergui/archive/refs/heads/master.zip)
-- From the saved directory run the following commands in this order- 
-
-**For Debian Based (Ubuntu, Mint, etc.):**
-```
-sudo apt update && sudo apt upgrade
-sudo apt-get update
-sudo apt install ffmpeg
-sudo apt install python3-pip
-sudo apt-get -y install python3-tk
-pip3 install -r requirements.txt
-python3 UVR.py
-```
-
-**For Arch Based (EndeavourOS):**
-```
-sudo pacman -Syu
-sudo pacman -Sy
-sudo pacman -S python-pip
-sudo pacman -S --noconfirm tk
-sudo pacman -S ffmpeg
-```
-
-To bypass environment setup and proceed with the installation, use:
-
-- Take caution; this modifies system files.
-
-```
-sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
-```
-
-Then proceed with the following in order:
-
-```
+```sh
 conda create -n uvr5 python=3.12
+# tk is included in conda python
 conda activate uvr5
-# conda install ffmpeg tk
-conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
-pip install onnxruntime-gpu onnx2pytorch onnx --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
-pip3 install -r requirements.txt
+conda install ffmpeg
+conda install pytorch -c pytorch
+pip install onnx2pytorch onnx
+pip install -r requirements.txt
 # building wheel for samplerate may require a proxy
 python UVR.py
 ```
 
-</details>
+### Linux
+
+```sh
+conda create -n uvr5 python=3.12
+# tk is included in conda python
+conda activate uvr5
+conda install gcc gxx cmake ninja glib gobject-introspection ffmpeg
+conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+pip install onnxruntime-gpu onnx2pytorch onnx --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+pip install pygobject
+pip install -r requirements.txt
+# building wheel for samplerate may require a proxy
+python UVR.py
+```
 
 ### Other Application Notes
 - Nvidia GTX 1060 6GB is the minimum requirement for GPU conversions.
